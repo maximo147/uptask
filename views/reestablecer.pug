@@ -1,0 +1,18 @@
+doctype html
+html(lang="es")
+    head
+        include partials/header
+    body.login
+        .contenedor-formulario 
+            h1 #{titulo}
+            if error 
+                div.alerta.error= error
+            form#formulario.caja.caja-login(action="/usuario/reestablecer", method="post")
+                .campo 
+                    label(for="email") E-mail: 
+                    input(type="email", name="email", placeholder="Tu Email" value= email)
+                .campo.enviar
+                    input.boton(type="submit" value="Reestablecer")
+                .campo.acciones
+                    a(href="/cuenta/crear-cuenta") ¿Aun no tienes cuenta?
+                    a(href="/auth/iniciar-sesion") Inicia sesion

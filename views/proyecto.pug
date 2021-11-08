@@ -1,0 +1,11 @@
+extends layout
+include mixins/formProyecto
+block contenido
+    .contenido-principal 
+        h2 #{titulo}
+        if errores
+            each error in errores
+                .alerta.error= error.texto
+        if message 
+            .alerta.correcto= message
+        +crearProyecto(proyecto)

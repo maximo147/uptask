@@ -1,0 +1,23 @@
+doctype html
+html(lang="en")
+    head
+        include partials/header
+    body.login 
+        .contenedor-formulario 
+            h1 #{titulo}
+            if error 
+                div.alerta.error= error
+            if message 
+                div.alerta.correcto= message
+            form#formulario.caja.caja-login(action="/auth/iniciar-sesion", method="post")
+                .campo 
+                    label(for="email") E-mail: 
+                    input(type="email", name="email", placeholder="Tu Email" value= email)
+                .campo 
+                    label(for="password") Password
+                    input(type="password" name="password" placeholder="Tu password" value= password required)
+                .campo.enviar
+                    input.boton(type="submit" value="Inicia Sesion")
+                .campo.acciones
+                    a(href="/cuenta/crear-cuenta") ¿Aun no tienes cuenta?
+                    a(href="/usuario/reestablecer") ¿Olvidaste tu contraseña?
